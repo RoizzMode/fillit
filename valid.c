@@ -6,7 +6,7 @@
 /*   By: lschambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 13:43:27 by lschambe          #+#    #+#             */
-/*   Updated: 2018/12/24 14:55:59 by lschambe         ###   ########.fr       */
+/*   Updated: 2018/12/24 17:13:06 by lschambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	change_figure(t_tetra **tetra)
 {
-	char **tab;
+	unsigned char **tab;
 	int i;
 	int j;
 
 	i = 0;
-	tab = (char**)malloc(sizeof(char*) * ((*tetra)->p[1] - (*tetra)->p[0] + 1));
+	tab = (unsigned char**)malloc(sizeof(unsigned char*) * ((*tetra)->p[1] - (*tetra)->p[0] + 1));
 	while (i < ((*tetra)->p[1] - (*tetra)->p[0] + 1))
 	{
-		tab[i] = (char*)malloc(sizeof(char) * ((*tetra)->p[3] - (*tetra)->p[2] + 1));
+		tab[i] = (unsigned char*)malloc(sizeof(unsigned char) * ((*tetra)->p[3] - (*tetra)->p[2] + 1));
 		j = 0;
 		while (j < ((*tetra)->p[3] - (*tetra)->p[2] + 1))
 		{
@@ -103,17 +103,17 @@ void	get_figure(char *s, t_tetra **tetra)
 
 	i = 0;
 	k = 0;
-	(*tetra)->figure = (char **)malloc(sizeof(char *) * 4);
+	(*tetra)->figure = (unsigned char **)malloc(sizeof(unsigned char *) * 4);
 	while (i < 4)
 	{
-		(*tetra)->figure[i] = (char*)malloc(sizeof(char) * 4);
+		(*tetra)->figure[i] = (unsigned char*)malloc(sizeof(unsigned char) * 4);
 		j = 0;
 		while (j < 4)
 		{
 			if (s[k] == '#')
 				(*tetra)->figure[i][j] = (*tetra)->symb;
 			else
-				(*tetra)->figure[i][j] = s[k];
+				(*tetra)->figure[i][j] = (unsigned char)s[k];
 			j++;
 			k++;
 		}

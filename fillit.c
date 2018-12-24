@@ -6,7 +6,7 @@
 /*   By: lschambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 17:31:39 by lschambe          #+#    #+#             */
-/*   Updated: 2018/12/24 13:39:48 by lschambe         ###   ########.fr       */
+/*   Updated: 2018/12/24 17:44:08 by lschambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int			valid(char *file, t_tetra **tetra)
 		buf[ret] = '\0';
 		if (!(check_map(buf, f)))
 			return (0);
-		if (!(check_sharps(buf)))
-			return (0);
+		//if (!(check_sharps(buf)))
+		//	return (0);
 		if (!(add_node(tetra, buf)))
 			return(0);
 	}

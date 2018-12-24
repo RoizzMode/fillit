@@ -6,7 +6,7 @@
 /*   By: lschambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 14:20:17 by lschambe          #+#    #+#             */
-/*   Updated: 2018/12/24 14:14:47 by lschambe         ###   ########.fr       */
+/*   Updated: 2018/12/24 17:14:13 by lschambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 typedef struct	s_tetra
 {
-	char **figure;
-	char symb;
+	unsigned char **figure;
+	unsigned char symb;
 	int p[4];
 	//int height;
 	//int width;
@@ -38,8 +38,8 @@ void		print_figures(t_tetra *lst);
 void		points(t_tetra **tetra);
 void		change_figure(t_tetra **tetra);
 int			solut(t_tetra *tetra);
-int			rec(int size,char tab[size][size], t_tetra *tetra);
-void	printf_map(int size, char tab[size][size]);
+int			rec(int size,unsigned char tab[size][size], t_tetra *tetra);
+void	printf_map(int size, unsigned char tab[size][size]);
 
 
 #endif
