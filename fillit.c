@@ -6,7 +6,7 @@
 /*   By: lschambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 17:31:39 by lschambe          #+#    #+#             */
-/*   Updated: 2018/12/21 19:39:20 by lschambe         ###   ########.fr       */
+/*   Updated: 2018/12/24 13:39:48 by lschambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,6 @@ int			main(int argc, char **argv)
 		print_figures(tetra);
 		printf("Everything OK\n");
 	}
-	solut();
+	solut(tetra);
 	return (0);
 }

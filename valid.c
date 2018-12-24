@@ -6,7 +6,7 @@
 /*   By: lschambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 13:43:27 by lschambe          #+#    #+#             */
-/*   Updated: 2018/12/21 18:37:15 by lschambe         ###   ########.fr       */
+/*   Updated: 2018/12/24 14:55:59 by lschambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,8 @@ void		print_figures(t_tetra *lst)
 			i++;
 		}
 		printf("\n");
-		i = 0;
-		/*while (i < 4)
+		/*i = 0;
+		while (i < 4)
 		{
 			printf("%d ", lst->p[i]);
 			i++;
