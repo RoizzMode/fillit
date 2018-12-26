@@ -6,7 +6,7 @@
 /*   By: lschambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/21 18:41:30 by lschambe          #+#    #+#             */
-/*   Updated: 2018/12/26 14:54:19 by lschambe         ###   ########.fr       */
+/*   Updated: 2018/12/26 17:02:30 by lschambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,15 +96,15 @@ void	print_map(int size, unsigned char tab[size][size])
 		while (j < size)
 		{
 			if (tab[i][j] >= 'A' && tab[i][j] <= 'Z')
-				printf("%c ", tab[i][j]);
+				ft_putchar(tab[i][j]);
 			else
-				printf("%d ", (int)tab[i][j]);
+				ft_putchar('.');
 			j++;
 		}
-		printf("\n");
+		ft_putchar('\n');
 		i++;
 	}
-	printf("\n");
+	ft_putchar('\n');
 }
 
 void	cpy_arr(int size, unsigned char tab[size][size], unsigned char cpy[size][size])
@@ -152,33 +152,22 @@ int		rec(int size, unsigned char tab[size][size], t_tetra *tetra, int *flag)
 	i = 0;
 	while (i < (size - (tetra->p[1] - tetra->p[0])))
 	{
-		//printf("here");
 		j = 0;
 		while (j < (size - (tetra->p[3] - tetra->p[2])))
 		{
-			//printf("here\n");
 			if (*flag == 1)
 				return (1);
 			if (i == 0 && j == 0 && tetra->symb == 'A')
 				zero_map(size, tab);
 			put_figure(size, tab, tetra, i, j);
-			printf("Put: %c\n", tetra->symb);
-			print_map(size, tab);
 			if (check_figure(size, tab) && !(tetra->next))
 			{
-				printf("Found: \n");
 				print_map(size,tab);
-				//printf("here\n");
 				*flag = 1;
 				return (1);
 			}
 			if (!check_figure(size, tab))
-			{
-				printf("Remove %c\n", tetra->symb);
 				remove_figure(size, tab, tetra, i, j);
-				print_map(size, tab);
-				//return (0);
-			}
 			else if (check_figure(size, tab) && tetra->next)
 			{
 				cpy_arr(size, tab, cpy);
@@ -187,35 +176,24 @@ int		rec(int size, unsigned char tab[size][size], t_tetra *tetra, int *flag)
 					remove_figure(size,tab, tetra, i, j);
 				}
 			}
-			//if (*flag == 1)
-			//	return (1);
-			//remove_figure(size,tab, tetra, i, j);
 			j++;
 		}
 		i++;
 	}
-	//print_map(size,tab);
-	//if (*flag == 1)
-	//	return (1);
 	if (tetra->symb == 'A')
-	{
-		//printf("here\n");
-		//print_map(size, tab);
 		rec(size + 1, tab, tetra, flag);
-	}
 	return (0);
 }
 
 int solut(t_tetra *tetra)
 {
-	int size = 3;
+	int size = 2;
 	unsigned char s[size][size];
 	int i;
 	int j;
 	int flag;
 	int *f;
 
-	//tetra->next = NULL;
 	i = 0;
 	while (i < size)
 	{
@@ -227,9 +205,6 @@ int solut(t_tetra *tetra)
 		}
 		i++;
 	}
-	//print_map(size, s);
-	//tetra->next = NULL;
-	//print_map(size + 1, s);
 	flag = 0;
 	f = &flag;
 	i = rec(size, s, tetra, f);
