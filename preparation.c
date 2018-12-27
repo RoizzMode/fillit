@@ -6,13 +6,42 @@
 /*   By: sgendry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/25 16:21:40 by sgendry           #+#    #+#             */
-/*   Updated: 2018/12/26 16:56:29 by lschambe         ###   ########.fr       */
+/*   Updated: 2018/12/27 16:21:22 by lschambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	change_figure(t_tetra **tetra)
+void				change_figure(t_tetra **tetra)
+{
+	unsigned char	**tab;
+	int				i;
+	int				j;
+
+	i = 0;
+	tab = (unsigned char**)malloc(sizeof(unsigned char*) *
+			((*tetra)->p[1] - (*tetra)->p[0] + 1));
+	while (i < ((*tetra)->p[1] - (*tetra)->p[0] + 1))
+	{
+		tab[i] = (unsigned char*)malloc(sizeof(unsigned char) *
+				((*tetra)->p[3] - (*tetra)->p[2] + 1));
+		j = 0;
+		while (j < ((*tetra)->p[3] - (*tetra)->p[2] + 1))
+		{
+			tab[i][j] = (*tetra)->figure[i + (*tetra)->p[0]][j +
+				(*tetra)->p[2]];
+			j++;
+		}
+		i++;
+	}
+	i = -1;
+	while (++i < 4)
+		free((*tetra)->figure[i]);
+	free((*tetra)->figure);
+	(*tetra)->figure = tab;
+}
+
+/*  void	change_figure(t_tetra **tetra)
 {
 	unsigned char **tab;
 	int i;
@@ -33,7 +62,7 @@ void	change_figure(t_tetra **tetra)
 	}
 	free((*tetra)->figure);
 	(*tetra)->figure = tab;
-}
+}*/
 
 void	points(t_tetra **tetra)
 {

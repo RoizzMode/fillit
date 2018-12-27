@@ -6,7 +6,7 @@
 /*   By: lschambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 14:20:17 by lschambe          #+#    #+#             */
-/*   Updated: 2018/12/26 17:03:01 by lschambe         ###   ########.fr       */
+/*   Updated: 2018/12/27 16:18:00 by lschambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ void		print_figures(t_tetra *lst);
 void		points(t_tetra **tetra);
 void		change_figure(t_tetra **tetra);
 int			solut(t_tetra *tetra);
-int			rec(int size,unsigned char tab[size][size], t_tetra *tetra, int *flag);
+int			rec(int size,unsigned char tab[size][size],
+			t_tetra *tetra, int *flag);
 void		printf_map(int size, unsigned char tab[size][size]);
 
 
