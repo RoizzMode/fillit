@@ -6,7 +6,7 @@
 /*   By: lschambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 14:20:17 by lschambe          #+#    #+#             */
-/*   Updated: 2018/12/27 14:00:33 by sgendry          ###   ########.fr       */
+/*   Updated: 2019/01/05 14:22:29 by lschambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int					check_sharp(unsigned char **tetra, char c);
 int					add_node(t_tetra **lst, char *s);
 int					get_figure(char *s, t_tetra **tetra);
 void				print_figures(t_tetra *lst);
-void				points(t_tetra **tetra);
-void				change_figure(t_tetra **tetra);
-int					solut(t_tetra *tetra);
+int					points(t_tetra **tetra);
+int					change_figure(t_tetra **tetra);
+int					solut(t_tetra *tetra, int size);
 int					rec(int size, unsigned char tab[size][size], t_tetra *tetra,
 					int *flag);
 void				printf_map(int size, unsigned char tab[size][size]);
@@ -49,5 +49,6 @@ void				remove_figure(int size, unsigned char tab[size][size],
 void				cpy_arr(int size, unsigned char tab[size][size],
 					unsigned char cpy[size][size]);
 void				print_map(int size, unsigned char tab[size][size]);
+void				initialize_points(t_tetra **tetra);
 
 #endif

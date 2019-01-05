@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy_s.c                                      :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lschambe <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sgendry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/30 14:20:16 by lschambe          #+#    #+#             */
-/*   Updated: 2018/11/30 14:29:22 by lschambe         ###   ########.fr       */
+/*   Created: 2018/12/04 20:44:27 by sgendry           #+#    #+#             */
+/*   Updated: 2018/12/04 21:01:32 by sgendry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char	*ft_strcpy_s(char *dest, const char *src)
+int		ft_isspace(int ch)
 {
-	int i;
-
-	if (!dest && !src)
-		return (NULL);
-	i = 0;
-	if (ft_strlen(src) > ft_strlen(dest))
-		return (NULL);
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	if ((ch >= 9 && ch <= 13) || ch == 32)
+		return (1);
+	else
+		return (0);
 }

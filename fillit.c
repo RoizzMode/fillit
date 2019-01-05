@@ -6,7 +6,7 @@
 /*   By: lschambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 17:31:39 by lschambe          #+#    #+#             */
-/*   Updated: 2018/12/27 16:36:51 by lschambe         ###   ########.fr       */
+/*   Updated: 2018/12/27 16:53:17 by sgendry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ int			valid(char *file, t_tetra **tetra)
 int			main(int argc, char **argv)
 {
 	t_tetra *tetra;
+	int		size;
 
+	size = 2;
 	if (argc != 2)
 	{
 		ft_putstr("usage ./fillit target_file");
@@ -50,6 +52,6 @@ int			main(int argc, char **argv)
 		ft_putstr("error\n");
 		return (0);
 	}
-	solut(tetra);
+	solut(tetra, size);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lschambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/21 18:41:30 by lschambe          #+#    #+#             */
-/*   Updated: 2018/12/27 16:46:40 by lschambe         ###   ########.fr       */
+/*   Updated: 2018/12/27 16:53:37 by sgendry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,16 +83,14 @@ int					rec(int size, unsigned char tab[size][size],
 	return (0);
 }
 
-int					solut(t_tetra *tetra)
+int					solut(t_tetra *tetra, int size)
 {
-	int				size;
-	unsigned char	s[2][2];
+	unsigned char	s[size][size];
 	int				i;
 	int				j;
 	int				flag;
 
 	i = 0;
-	size = 2;
 	while (i < size)
 	{
 		j = 0;

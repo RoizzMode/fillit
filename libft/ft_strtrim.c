@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lschambe <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sgendry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/23 14:14:13 by lschambe          #+#    #+#             */
-/*   Updated: 2018/11/28 13:00:52 by lschambe         ###   ########.fr       */
+/*   Created: 2018/11/29 20:06:23 by sgendry           #+#    #+#             */
+/*   Updated: 2018/12/03 20:41:04 by sgendry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,21 @@
 
 char	*ft_strtrim(char const *s)
 {
-	char	*dst;
+	char	*str;
 	int		i;
 	int		len;
-	int		k;
 
 	if (!s)
 		return (NULL);
-	len = 0;
-	while (s[len])
-		len++;
-	while (s[len] == ' ' || s[len] == '\n' || s[len] == '\t' || s[len] == '\0')
-		len--;
-	len++;
+	len = ft_strlen(s) - 1;
 	i = 0;
 	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
 		i++;
-	((len - i) < 1) ? (dst = (char*)malloc(sizeof(char))) :
-		(dst = (char*)malloc(sizeof(char) * (len - i) + 1));
-	if (!dst)
-		return (NULL);
-	k = 0;
-	while (i < len)
-		dst[k++] = s[i++];
-	dst[k] = '\0';
-	return (dst);
+	while ((s[len] == ' ' || s[len] == '\n' || s[len] == '\t') && len)
+		len--;
+	if (len == 0)
+		str = ft_strnew(0);
+	else
+		str = ft_strsub(s, i, len - i + 1);
+	return (str);
 }

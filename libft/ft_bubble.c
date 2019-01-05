@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strpbrk.c                                       :+:      :+:    :+:   */
+/*   ft_bubble.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lschambe <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sgendry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/30 13:45:11 by lschambe          #+#    #+#             */
-/*   Updated: 2018/11/30 14:01:56 by lschambe         ###   ########.fr       */
+/*   Created: 2018/12/04 20:09:04 by sgendry           #+#    #+#             */
+/*   Updated: 2018/12/04 21:28:15 by sgendry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strpbrk(const char *s, const char *c)
+void		ft_bubble(char **c)
 {
-	int i;
-	int len;
-	int j;
-	int lenc;
+	int		i;
+	int		j;
+	char	*tmp;
 
 	i = 0;
-	len = 0;
-	lenc = 0;
-	while (s[len] != '\0')
-		len++;
-	while (c[lenc] != '\0')
-		lenc++;
-	while (i < len + 1)
+	j = 0;
+	while (c[i])
 	{
-		j = 0;
-		while (j <= lenc)
+		j = i + 1;
+		while (c[j])
 		{
-			if (s[i] == c[j])
-				return ((char*)(s + i));
+			if (ft_strcmp(c[i], c[j]) > 0)
+			{
+				tmp = c[i];
+				c[i] = c[j];
+				c[j] = tmp;
+			}
 			j++;
 		}
 		i++;
 	}
-	return (NULL);
 }

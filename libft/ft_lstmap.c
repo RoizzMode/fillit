@@ -3,47 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lschambe <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sgendry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/26 15:35:15 by lschambe          #+#    #+#             */
-/*   Updated: 2018/12/02 14:59:05 by lschambe         ###   ########.fr       */
+/*   Created: 2018/12/03 18:50:34 by sgendry           #+#    #+#             */
+/*   Updated: 2018/12/04 19:28:05 by sgendry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		fri(t_list *alst)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	while (alst)
-	{
-		free(alst->content);
-		alst->content_size = 0;
-		alst = alst->next;
-	}
-	free(alst);
-}
-
-t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
-{
-	t_list	*nekst;
-	t_list	*list;
-	t_list	*alst;
+	t_list	*new;
+	t_list	*mem;
 
 	if (!lst || !f)
 		return (NULL);
-	list = f(lst);
-	alst = list;
-	nekst = lst;
-	while (nekst->next)
+	new = f(lst);
+	mem = new;
+	lst = lst->next;
+	while (lst)
 	{
-		nekst = nekst->next;
-		list->next = f(nekst);
-		if (!list)
+		if (!(new->next = f(lst)))
 		{
-			fri(alst);
-			return (NULL);
+			while (mem->next)
+			{
+				new = mem->next;
+				free(mem);
+				mem = new;
+			}
 		}
-		list = list->next;
+		lst = lst->next;
+		new = new->next;
 	}
-	return (alst);
+	return (mem);
 }

@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   ft_iscntrl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lschambe <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sgendry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/30 13:19:34 by lschambe          #+#    #+#             */
-/*   Updated: 2018/11/30 13:21:38 by lschambe         ###   ########.fr       */
+/*   Created: 2018/12/04 20:37:00 by sgendry           #+#    #+#             */
+/*   Updated: 2018/12/04 20:52:12 by sgendry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int		ft_abs(int n)
+int		ft_iscntrl(int ch)
 {
-	if (n < 0)
-		return (-n);
-	return (n);
+	if ((ch >= 0 && ch <= 0x1F) || ch == 0x7F)
+		return (1);
+	else
+		return (0);
 }
